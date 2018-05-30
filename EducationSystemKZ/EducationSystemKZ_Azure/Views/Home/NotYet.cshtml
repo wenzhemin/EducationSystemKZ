@@ -1,0 +1,25 @@
+﻿
+@{
+    ViewBag.Title = "NotYet";
+}
+
+<h2>NotYet</h2>
+
+
+@using (Html.BeginForm())
+{
+    @Html.AntiForgeryToken()
+
+    <div class="form-horizontal">
+        <h4>Not Yet. </h4>
+        <hr />
+        @Html.ValidationSummary(true, "", new { @class = "text-danger" })
+
+
+    </div>
+}
+
+
+<p>
+    @Html.ActionLink("Back to Home Page", "Index")
+</p>

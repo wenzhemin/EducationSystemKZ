@@ -1,0 +1,90 @@
+﻿@model IEnumerable<EducationSystemKZ_Azure.Models.TuitionFee>
+
+@{
+    ViewBag.Title = "GetAll";
+}
+
+<h2>GetResult</h2>
+
+
+<table class="table">
+    <tr>
+
+        <th>
+            @Html.DisplayNameFor(model => model.StudentId)
+        </th>
+        <th>
+            @Html.DisplayNameFor(model => model.Student.Name)
+        </th>
+        <th>
+            @Html.DisplayNameFor(model => model.Student.ContactNo)
+        </th>
+        <th>
+            @Html.DisplayNameFor(model => model.Student.Semester)
+        </th>
+        <th>
+            @Html.DisplayNameFor(model => model.Student.Department)
+        </th>
+        <th>
+            @Html.DisplayNameFor(model => model.InvoiceId)
+        </th>
+        <th>
+            @Html.DisplayNameFor(model => model.Amount)
+        </th>
+        <th>
+            @Html.DisplayNameFor(model => model.DateTime)
+        </th>
+        <th>
+            @Html.DisplayNameFor(model => model.FeePeriod)
+        </th>
+        <th></th>
+    </tr>
+
+    @foreach (var item in Model)
+    {
+        <tr>
+
+            <td>
+                @Html.DisplayFor(modelItem => item.StudentId)
+            </td>
+            <td>
+                @Html.DisplayFor(modelItem => item.Student.Name)
+            </td>
+            <td>
+                @Html.DisplayFor(modelItem => item.Student.ContactNo)
+            </td>
+            <td>
+                @Html.DisplayFor(modelItem => item.Student.Semester)
+            </td>
+            <td>
+                @Html.DisplayFor(modelItem => item.Student.Department)
+            </td>
+            <td>
+                @Html.DisplayFor(modelItem => item.InvoiceId)
+            </td>
+            <td>
+                @Html.DisplayFor(modelItem => item.Amount)
+            </td>
+            <td>
+                @Html.DisplayFor(modelItem => item.DateTime)
+            </td>
+            <td>
+                @Html.DisplayFor(modelItem => item.FeePeriod)
+            </td>
+            <td>
+                @Html.ActionLink("Edit", "Edit", new { id = item.InvoiceId }) |
+                @Html.ActionLink("Details", "Details", new { id = item.InvoiceId }) |
+                @Html.ActionLink("Delete", "Delete", new { id = item.InvoiceId })
+            </td>
+        </tr>
+    }
+
+</table>
+
+
+
+
+
+<p>
+    @Html.ActionLink("Back to Tuition Fee Page", "Index")
+</p>

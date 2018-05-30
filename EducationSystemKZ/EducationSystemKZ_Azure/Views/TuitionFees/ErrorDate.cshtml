@@ -1,0 +1,25 @@
+﻿
+@{
+    ViewBag.Title = "ErrorDate";
+}
+
+<h2>ErrorDate</h2>
+
+
+@using (Html.BeginForm())
+{
+    @Html.AntiForgeryToken()
+
+    <div class="form-horizontal">
+        <h4>The student hasn't paid the tuition fee for previous months. </h4>
+        <hr />
+        @Html.ValidationSummary(true, "", new { @class = "text-danger" })
+
+
+    </div>
+}
+
+
+<p>
+    @Html.ActionLink("Back to Tuition Fee Page", "Index")
+</p>
