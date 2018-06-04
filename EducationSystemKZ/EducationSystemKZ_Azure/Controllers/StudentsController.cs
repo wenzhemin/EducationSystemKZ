@@ -12,7 +12,7 @@ namespace EducationSystemKZ_Azure.Controllers
 {
     public class StudentsController : Controller
     {
-        private zheminDBEntities1 db = new zheminDBEntities1();
+        private zheminDBEntities db = new zheminDBEntities();
 
         // Index
         public ActionResult Index()

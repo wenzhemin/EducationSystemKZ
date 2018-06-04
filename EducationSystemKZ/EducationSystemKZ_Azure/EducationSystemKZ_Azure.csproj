@@ -161,6 +161,7 @@
     <Compile Include="App_Start\RouteConfig.cs" />
     <Compile Include="Controllers\ExpensesController.cs" />
     <Compile Include="Controllers\HomeController.cs" />
+    <Compile Include="Controllers\ReportsController.cs" />
     <Compile Include="Controllers\StaffsController.cs" />
     <Compile Include="Controllers\StudentsController.cs" />
     <Compile Include="Controllers\TuitionFeesController.cs" />
@@ -185,6 +186,7 @@
     <Compile Include="Models\Expense.cs">
       <DependentUpon>EducationModel.tt</DependentUpon>
     </Compile>
+    <Compile Include="Models\Report.cs" />
     <Compile Include="Models\Staff.cs">
       <DependentUpon>EducationModel.tt</DependentUpon>
     </Compile>
@@ -286,10 +288,12 @@
     <Content Include="Views\Expenses\GetAll.cshtml" />
     <Content Include="Views\Home\NotYet.cshtml" />
     <Content Include="Views\Expenses\Search.cshtml" />
+    <Content Include="Views\Reports\Index.cshtml" />
+    <Content Include="Views\Reports\Monthly.cshtml" />
+    <Content Include="Views\Reports\GetReport.cshtml" />
   </ItemGroup>
   <ItemGroup>
     <Folder Include="App_Data\" />
-    <Folder Include="Views\Errors\" />
   </ItemGroup>
   <ItemGroup>
     <Content Include="fonts\glyphicons-halflings-regular.woff" />

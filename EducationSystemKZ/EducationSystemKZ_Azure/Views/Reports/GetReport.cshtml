@@ -1,0 +1,89 @@
+﻿@model EducationSystemKZ_Azure.Models.Report
+
+@{
+    ViewBag.Title = "GetReport";
+}
+
+<h2>GetReport</h2>
+
+
+<div>
+    <h4>Report</h4>
+    <hr />
+    <h4 class="col-md-12 period"><i class="far fa-calendar-alt"></i> @Html.DisplayNameFor(model => model.Period): @Html.DisplayFor(model => model.Period)</h4>
+    <div class="col-md-4 report-container income">
+        <h3><i class="fas fa-calculator"></i> Income</h3>
+        <dl class="dl-horizontal ">
+
+            <dt>
+                
+            </dt>
+
+            <dd>
+                
+            </dd>
+
+            <dt>
+                @Html.DisplayNameFor(model => model.TotalFeeReceived)
+            </dt>
+
+            <dd>
+                @Html.DisplayFor(model => model.TotalFeeReceived)
+            </dd>
+
+
+
+        </dl>
+
+    </div>
+    <div class="col-md-8 report-container expenses">
+        <h3><i class="fas fa-calculator"></i> Expenses</h3>
+        <dl class="dl-horizontal ">
+            <dt>
+                @Html.DisplayNameFor(model => model.TotalExpenses)
+            </dt>
+
+            <dd>
+                @Html.DisplayFor(model => model.TotalExpenses)
+            </dd>
+
+            <dt>
+                @Html.DisplayNameFor(model => model.Salary)
+            </dt>
+
+            <dd>
+                @Html.DisplayFor(model => model.Salary)
+            </dd>
+
+            <dt>
+                @Html.DisplayNameFor(model => model.ElectricityFee)
+            </dt>
+
+            <dd>
+                @Html.DisplayFor(model => model.ElectricityFee)
+            </dd>
+
+            <dt>
+                @Html.DisplayNameFor(model => model.WaterFee)
+            </dt>
+
+            <dd>
+                @Html.DisplayFor(model => model.WaterFee)
+            </dd>
+
+            <dt>
+                @Html.DisplayNameFor(model => model.OtherFee)
+            </dt>
+
+            <dd>
+                @Html.DisplayFor(model => model.OtherFee)
+            </dd>
+
+        </dl>
+
+    </div>
+
+
+    
+</div>
+

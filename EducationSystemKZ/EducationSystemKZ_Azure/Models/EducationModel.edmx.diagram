@@ -4,12 +4,12 @@
   <edmx:Designer xmlns="http://schemas.microsoft.com/ado/2009/11/edmx">
     <!-- Diagram content (shape and connector positions) -->
     <edmx:Diagrams>
-      <Diagram DiagramId="b968d495174e41518abbdd03deaf46bc" Name="Diagram1">
+      <Diagram DiagramId="f4c4be18ebe742a3b05604bf1ff42955" Name="Diagram1">
         <EntityTypeShape EntityType="zheminDBModel.Expense" Width="1.5" PointX="3" PointY="5" IsExpanded="true" />
         <EntityTypeShape EntityType="zheminDBModel.Staff" Width="1.5" PointX="0.75" PointY="5.125" IsExpanded="true" />
         <EntityTypeShape EntityType="zheminDBModel.Student" Width="1.5" PointX="0.75" PointY="1" IsExpanded="true" />
         <EntityTypeShape EntityType="zheminDBModel.TuitionFee" Width="1.5" PointX="3" PointY="1" IsExpanded="true" />
-        <AssociationConnector Association="zheminDBModel.FK__Expense__StaffId__214BF109" ManuallyRouted="false" />
+        <AssociationConnector Association="zheminDBModel.FK__Expense__StaffId__24285DB4" ManuallyRouted="false" />
         <AssociationConnector Association="zheminDBModel.FK__TuitionFe__Stude__14E61A24" ManuallyRouted="false" />
       </Diagram>
     </edmx:Diagrams>

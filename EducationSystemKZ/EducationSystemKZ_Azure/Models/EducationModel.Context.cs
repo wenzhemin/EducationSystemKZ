@@ -13,10 +13,10 @@ namespace EducationSystemKZ_Azure.Models
     using System.Data.Entity;
     using System.Data.Entity.Infrastructure;
     
-    public partial class zheminDBEntities1 : DbContext
+    public partial class zheminDBEntities : DbContext
     {
-        public zheminDBEntities1()
-            : base("name=zheminDBEntities1")
+        public zheminDBEntities()
+            : base("name=zheminDBEntities")
         {
         }
     

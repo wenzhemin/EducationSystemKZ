@@ -116,4 +116,38 @@ a.title-container {
     color: red;
 }
 
+.report-container {
+    padding-bottom: 100px;
+}
 
+.report-container h3 {
+    
+}
+
+.report-container dt {
+    padding: 2px 0;
+    text-align: left;
+    
+}
+
+.report-container dd {
+    font-weight: bold;
+
+}
+
+.report-container dt,
+.report-container dd {
+    font-size: 16px;
+}
+
+.income h3 {
+    color: darkblue;
+}
+
+.expenses h3 {
+    color: darkred;
+}
+
+.period {
+    font-size: 30px;
+}
