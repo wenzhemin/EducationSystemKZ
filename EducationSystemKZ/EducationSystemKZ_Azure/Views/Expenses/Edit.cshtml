@@ -82,7 +82,7 @@
             @Html.LabelFor(model => model.StaffId, "StaffId", htmlAttributes: new { @class = "control-label col-md-2" })
             <div class="col-md-10 input-container">
                 @Html.EditorFor(model => model.StaffId, new { htmlAttributes = new { @class = "form-control" } })
-                <span class="input-description">* Optional - If you choose type of "Salary", enter the Staff ID. </span>
+                <span class="input-description">* Optional - Enter the Staff ID If it is Salary. </span>
                 @Html.ValidationMessageFor(model => model.StaffId, "", new { @class = "text-danger" })
             </div>
         </div>
