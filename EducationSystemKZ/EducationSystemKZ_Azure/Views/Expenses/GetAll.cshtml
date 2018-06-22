@@ -2,9 +2,14 @@
 
 @{
     ViewBag.Title = "GetResult";
+
+    if (Session["userID"] == null)
+    {
+        Response.Redirect("~/Login/Index");
+    }
 }
 
-<h2>GetAll</h2>
+<h2>GetResult</h2>
 
 
 
@@ -13,9 +18,7 @@
         <th>
             @Html.DisplayNameFor(model => model.Id)
         </th>
-        <th>
-            @Html.DisplayNameFor(model => model.Type)
-        </th>
+
         <th>
             @Html.DisplayNameFor(model => model.Description)
         </th>
@@ -43,9 +46,7 @@
             <td>
                 @Html.DisplayFor(modelItem => item.Id)
             </td>
-            <td>
-                @Html.DisplayFor(modelItem => item.Type)
-            </td>
+
             <td>
                 @Html.DisplayFor(modelItem => item.Description)
             </td>
@@ -74,5 +75,5 @@
 
 </table>
 <p>
-    @Html.ActionLink("Back to Expenses Page", "Index")
+    @Html.ActionLink("Back to Expense Page", "Index")
 </p>

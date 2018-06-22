@@ -25,6 +25,7 @@ namespace EducationSystemKZ_Azure.Models
             throw new UnintentionalCodeFirstException();
         }
     
+        public virtual DbSet<Administrator> Administrators { get; set; }
         public virtual DbSet<Expense> Expenses { get; set; }
         public virtual DbSet<Staff> Staffs { get; set; }
         public virtual DbSet<Student> Students { get; set; }

@@ -5,12 +5,19 @@
     <!-- SSDL content -->
     <edmx:StorageModels>
       <Schema Namespace="zheminDBModel.Store" Provider="System.Data.SqlClient" ProviderManifestToken="2012.Azure" Alias="Self" xmlns:store="http://schemas.microsoft.com/ado/2007/12/edm/EntityStoreSchemaGenerator" xmlns:customannotation="http://schemas.microsoft.com/ado/2013/11/edm/customannotation" xmlns="http://schemas.microsoft.com/ado/2009/11/edm/ssdl">
+        <EntityType Name="Administrator">
+          <Key>
+            <PropertyRef Name="Id" />
+          </Key>
+          <Property Name="Id" Type="int" StoreGeneratedPattern="Identity" Nullable="false" />
+          <Property Name="Username" Type="varchar" MaxLength="50" Nullable="false" />
+          <Property Name="Password" Type="varchar" MaxLength="50" Nullable="false" />
+        </EntityType>
         <EntityType Name="Expense">
           <Key>
             <PropertyRef Name="Id" />
           </Key>
           <Property Name="Id" Type="int" StoreGeneratedPattern="Identity" Nullable="false" />
-          <Property Name="Type" Type="varchar" MaxLength="50" Nullable="false" />
           <Property Name="Description" Type="varchar" MaxLength="50" />
           <Property Name="Amount" Type="decimal" Precision="18" Scale="0" Nullable="false" />
           <Property Name="DateTime" Type="datetime" Nullable="false" />
@@ -46,7 +53,7 @@
           <Property Name="FeePeriod" Type="datetime" Nullable="false" />
           <Property Name="StudentId" Type="int" Nullable="false" />
         </EntityType>
-        <Association Name="FK__Expense__StaffId__24285DB4">
+        <Association Name="FK__Expense__StaffId__4589517F">
           <End Role="Staff" Type="Self.Staff" Multiplicity="0..1" />
           <End Role="Expense" Type="Self.Expense" Multiplicity="*" />
           <ReferentialConstraint>
@@ -71,11 +78,12 @@
           </ReferentialConstraint>
         </Association>
         <EntityContainer Name="zheminDBModelStoreContainer">
+          <EntitySet Name="Administrator" EntityType="Self.Administrator" Schema="dbo" store:Type="Tables" />
           <EntitySet Name="Expense" EntityType="Self.Expense" Schema="dbo" store:Type="Tables" />
           <EntitySet Name="Staff" EntityType="Self.Staff" Schema="dbo" store:Type="Tables" />
           <EntitySet Name="Student" EntityType="Self.Student" Schema="dbo" store:Type="Tables" />
           <EntitySet Name="TuitionFee" EntityType="Self.TuitionFee" Schema="dbo" store:Type="Tables" />
-          <AssociationSet Name="FK__Expense__StaffId__24285DB4" Association="Self.FK__Expense__StaffId__24285DB4">
+          <AssociationSet Name="FK__Expense__StaffId__4589517F" Association="Self.FK__Expense__StaffId__4589517F">
             <End Role="Staff" EntitySet="Staff" />
             <End Role="Expense" EntitySet="Expense" />
           </AssociationSet>
@@ -89,17 +97,24 @@
     <!-- CSDL content -->
     <edmx:ConceptualModels>
       <Schema Namespace="zheminDBModel" Alias="Self" annotation:UseStrongSpatialTypes="false" xmlns:annotation="http://schemas.microsoft.com/ado/2009/02/edm/annotation" xmlns:customannotation="http://schemas.microsoft.com/ado/2013/11/edm/customannotation" xmlns="http://schemas.microsoft.com/ado/2009/11/edm">
+        <EntityType Name="Administrator">
+          <Key>
+            <PropertyRef Name="Id" />
+          </Key>
+          <Property Name="Id" Type="Int32" Nullable="false" annotation:StoreGeneratedPattern="Identity" />
+          <Property Name="Username" Type="String" MaxLength="50" FixedLength="false" Unicode="false" Nullable="false" />
+          <Property Name="Password" Type="String" MaxLength="50" FixedLength="false" Unicode="false" Nullable="false" />
+        </EntityType>
         <EntityType Name="Expense">
           <Key>
             <PropertyRef Name="Id" />
           </Key>
           <Property Name="Id" Type="Int32" Nullable="false" annotation:StoreGeneratedPattern="Identity" />
-          <Property Name="Type" Type="String" MaxLength="50" FixedLength="false" Unicode="false" Nullable="false" />
           <Property Name="Description" Type="String" MaxLength="50" FixedLength="false" Unicode="false" />
           <Property Name="Amount" Type="Decimal" Precision="18" Scale="0" Nullable="false" />
           <Property Name="DateTime" Type="DateTime" Nullable="false" Precision="3" />
           <Property Name="StaffId" Type="Int32" />
-          <NavigationProperty Name="Staff" Relationship="Self.FK__Expense__StaffId__24285DB4" FromRole="Expense" ToRole="Staff" />
+          <NavigationProperty Name="Staff" Relationship="Self.FK__Expense__StaffId__4589517F" FromRole="Expense" ToRole="Staff" />
         </EntityType>
         <EntityType Name="Staff">
           <Key>
@@ -109,7 +124,7 @@
           <Property Name="Name" Type="String" MaxLength="50" FixedLength="false" Unicode="false" Nullable="false" />
           <Property Name="ContactNo" Type="String" MaxLength="50" FixedLength="false" Unicode="false" Nullable="false" />
           <Property Name="JobTitle" Type="String" MaxLength="50" FixedLength="false" Unicode="false" Nullable="false" />
-          <NavigationProperty Name="Expenses" Relationship="Self.FK__Expense__StaffId__24285DB4" FromRole="Staff" ToRole="Expense" />
+          <NavigationProperty Name="Expenses" Relationship="Self.FK__Expense__StaffId__4589517F" FromRole="Staff" ToRole="Expense" />
         </EntityType>
         <EntityType Name="Student">
           <Key>
@@ -134,7 +149,7 @@
           <Property Name="StudentId" Type="Int32" Nullable="false" />
           <NavigationProperty Name="Student" Relationship="Self.FK__TuitionFe__Stude__14E61A24" FromRole="TuitionFee" ToRole="Student" />
         </EntityType>
-        <Association Name="FK__Expense__StaffId__24285DB4">
+        <Association Name="FK__Expense__StaffId__4589517F">
           <End Role="Staff" Type="Self.Staff" Multiplicity="0..1" />
           <End Role="Expense" Type="Self.Expense" Multiplicity="*" />
           <ReferentialConstraint>
@@ -159,11 +174,12 @@
           </ReferentialConstraint>
         </Association>
         <EntityContainer Name="zheminDBEntities" annotation:LazyLoadingEnabled="true">
+          <EntitySet Name="Administrators" EntityType="Self.Administrator" />
           <EntitySet Name="Expenses" EntityType="Self.Expense" />
           <EntitySet Name="Staffs" EntityType="Self.Staff" />
           <EntitySet Name="Students" EntityType="Self.Student" />
           <EntitySet Name="TuitionFees" EntityType="Self.TuitionFee" />
-          <AssociationSet Name="FK__Expense__StaffId__24285DB4" Association="Self.FK__Expense__StaffId__24285DB4">
+          <AssociationSet Name="FK__Expense__StaffId__4589517F" Association="Self.FK__Expense__StaffId__4589517F">
             <End Role="Staff" EntitySet="Staffs" />
             <End Role="Expense" EntitySet="Expenses" />
           </AssociationSet>
@@ -178,11 +194,19 @@
     <edmx:Mappings>
       <Mapping Space="C-S" xmlns="http://schemas.microsoft.com/ado/2009/11/mapping/cs">
         <EntityContainerMapping StorageEntityContainer="zheminDBModelStoreContainer" CdmEntityContainer="zheminDBEntities">
+          <EntitySetMapping Name="Administrators">
+            <EntityTypeMapping TypeName="zheminDBModel.Administrator">
+              <MappingFragment StoreEntitySet="Administrator">
+                <ScalarProperty Name="Id" ColumnName="Id" />
+                <ScalarProperty Name="Username" ColumnName="Username" />
+                <ScalarProperty Name="Password" ColumnName="Password" />
+              </MappingFragment>
+            </EntityTypeMapping>
+          </EntitySetMapping>
           <EntitySetMapping Name="Expenses">
             <EntityTypeMapping TypeName="zheminDBModel.Expense">
               <MappingFragment StoreEntitySet="Expense">
                 <ScalarProperty Name="Id" ColumnName="Id" />
-                <ScalarProperty Name="Type" ColumnName="Type" />
                 <ScalarProperty Name="Description" ColumnName="Description" />
                 <ScalarProperty Name="Amount" ColumnName="Amount" />
                 <ScalarProperty Name="DateTime" ColumnName="DateTime" />

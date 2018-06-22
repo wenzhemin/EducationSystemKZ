@@ -55,7 +55,7 @@ namespace EducationSystemKZ_Azure.Controllers
         // more details see http://go.microsoft.com/fwlink/?LinkId=317598.
         [HttpPost]
         [ValidateAntiForgeryToken]
-        public ActionResult Create([Bind(Include = "Id,Type,Description,Amount,DateTime,StaffId")] Expense expense)
+        public ActionResult Create([Bind(Include = "Id,Description,Amount,DateTime,StaffId")] Expense expense)
         {
             
             if (ModelState.IsValid)
@@ -91,7 +91,7 @@ namespace EducationSystemKZ_Azure.Controllers
         // more details see http://go.microsoft.com/fwlink/?LinkId=317598.
         [HttpPost]
         [ValidateAntiForgeryToken]
-        public ActionResult Edit([Bind(Include = "Id,Type,Description,Amount,DateTime,StaffId")] Expense expense)
+        public ActionResult Edit([Bind(Include = "Id,Description,Amount,DateTime,StaffId")] Expense expense)
         {
             if (ModelState.IsValid)
             {
@@ -140,20 +140,17 @@ namespace EducationSystemKZ_Azure.Controllers
         // more details see http://go.microsoft.com/fwlink/?LinkId=317598.
         [HttpPost]
         [ValidateAntiForgeryToken]
-        public ActionResult Search([Bind(Include = "Id,Type,Description,Amount,DateTime,StaffId")] Expense expense)
+        public ActionResult Search([Bind(Include = "Id,Description,Amount,DateTime,StaffId")] Expense expense)
         {
-            if (expense.Type == null)
-            {
-                expense.Type = "";
-            }
+
 
             IEnumerable<Expense> expenses;
             if (ModelState.IsValid)
             {
 
                 expenses = from r in db.Expenses.AsQueryable()
-                              where r.DateTime.Month == expense.DateTime.Month && r.Type.Contains(expense.Type)
-                              select r;
+                              where r.DateTime.Month == expense.DateTime.Month && r.Description.Contains(expense.Description)
+                           select r;
 
 
 

@@ -1,6 +1,11 @@
 ﻿
 @{
     ViewBag.Title = "NotYet";
+
+    if (Session["userID"] == null)
+    {
+        Response.Redirect("~/Login/Index");
+    }
 }
 
 <h2>NotYet</h2>

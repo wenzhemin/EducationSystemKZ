@@ -12,8 +12,6 @@ namespace EducationSystemKZ_Azure.Models
         private decimal _totalFeeReceived;
         private decimal _totalExpenses;
         private decimal _salary;
-        private decimal _electricityFee;
-        private decimal _waterFee;
         private decimal _otherFee;
 
 
@@ -41,18 +39,6 @@ namespace EducationSystemKZ_Azure.Models
             set { _salary = value; }
         }
 
-        public decimal ElectricityFee
-        {
-            get { return _electricityFee; }
-            set { _electricityFee = value; }
-        }
-
-        public decimal WaterFee
-        {
-            get { return _waterFee; }
-            set { _waterFee = value; }
-        }
-
         public decimal OtherFee
         {
             get { return _otherFee; }
@@ -64,14 +50,12 @@ namespace EducationSystemKZ_Azure.Models
 
         }
 
-        public Report(DateTime period, decimal totalFeeReceived, decimal totalExpenses, decimal salary, decimal electricityFee, decimal waterFee, decimal otherFee)
+        public Report(DateTime period, decimal totalFeeReceived, decimal totalExpenses, decimal salary, decimal otherFee)
         {
             _period = period;
             _totalFeeReceived = totalFeeReceived;
             _totalExpenses = totalExpenses;
             _salary = salary;
-            _electricityFee = electricityFee;
-            _waterFee = waterFee;
             _otherFee = otherFee;
 
 

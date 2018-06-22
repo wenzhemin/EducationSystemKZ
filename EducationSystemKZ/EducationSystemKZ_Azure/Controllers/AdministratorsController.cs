@@ -10,158 +10,151 @@ using EducationSystemKZ_Azure.Models;
 
 namespace EducationSystemKZ_Azure.Controllers
 {
-    public class StudentsController : Controller
+    public class AdministratorsController : Controller
     {
         private zheminDBEntities db = new zheminDBEntities();
 
-        // Index
+        // GET: Administrators
         public ActionResult Index()
         {
             return View();
         }
 
-        // GET: Students
+        // GET: Administrators
         public ActionResult GetAll()
         {
-            return View(db.Students.ToList());
+            return View(db.Administrators.ToList());
         }
 
-        // GET: Students/Details/5
+        // GET: Administrators/Details/5
         public ActionResult Details(int? id)
         {
             if (id == null)
             {
                 return new HttpStatusCodeResult(HttpStatusCode.BadRequest);
             }
-            Student student = db.Students.Find(id);
-            if (student == null)
+            Administrator administrator = db.Administrators.Find(id);
+            if (administrator == null)
             {
                 return HttpNotFound();
             }
-            return View(student);
+            return View(administrator);
         }
 
-        // GET: Students/Create
+        // GET: Administrators/Create
         public ActionResult Create()
         {
             return View();
         }
 
-        // POST: Students/Create
+        // POST: Administrators/Create
         // To protect from overposting attacks, please enable the specific properties you want to bind to, for 
         // more details see http://go.microsoft.com/fwlink/?LinkId=317598.
         [HttpPost]
         [ValidateAntiForgeryToken]
-        public ActionResult Create([Bind(Include = "Id,Name,ContactNo,TimePriod,Semester,Department")] Student student)
+        public ActionResult Create([Bind(Include = "Id,Username,Password")] Administrator administrator)
         {
             if (ModelState.IsValid)
             {
-                db.Students.Add(student);
+                db.Administrators.Add(administrator);
                 db.SaveChanges();
                 return RedirectToAction("GetAll");
             }
 
-            return View(student);
+            return View(administrator);
         }
 
-        // GET: Students/Edit/5
+        // GET: Administrators/Edit/5
         public ActionResult Edit(int? id)
         {
             if (id == null)
             {
                 return new HttpStatusCodeResult(HttpStatusCode.BadRequest);
             }
-            Student student = db.Students.Find(id);
-            if (student == null)
+            Administrator administrator = db.Administrators.Find(id);
+            if (administrator == null)
             {
                 return HttpNotFound();
             }
-            return View(student);
+            return View(administrator);
         }
 
-        // POST: Students/Edit/5
+        // POST: Administrators/Edit/5
         // To protect from overposting attacks, please enable the specific properties you want to bind to, for 
         // more details see http://go.microsoft.com/fwlink/?LinkId=317598.
         [HttpPost]
         [ValidateAntiForgeryToken]
-        public ActionResult Edit([Bind(Include = "Id,Name,ContactNo,TimePriod,Semester,Department")] Student student)
+        public ActionResult Edit([Bind(Include = "Id,Username,Password")] Administrator administrator)
         {
             if (ModelState.IsValid)
             {
-                db.Entry(student).State = EntityState.Modified;
+                db.Entry(administrator).State = EntityState.Modified;
                 db.SaveChanges();
                 return RedirectToAction("GetAll");
             }
-            return View(student);
+            return View(administrator);
         }
 
-        // GET: Students/Delete/5
+        // GET: Administrators/Delete/5
         public ActionResult Delete(int? id)
         {
             if (id == null)
             {
                 return new HttpStatusCodeResult(HttpStatusCode.BadRequest);
             }
-            Student student = db.Students.Find(id);
-            if (student == null)
+            Administrator administrator = db.Administrators.Find(id);
+            if (administrator == null)
             {
                 return HttpNotFound();
             }
-            return View(student);
+            return View(administrator);
         }
 
-        // POST: Students/Delete/5
+        // POST: Administrators/Delete/5
         [HttpPost, ActionName("Delete")]
         [ValidateAntiForgeryToken]
         public ActionResult DeleteConfirmed(int id)
         {
-            Student student = db.Students.Find(id);
-            db.Students.Remove(student);
+            Administrator administrator = db.Administrators.Find(id);
+            db.Administrators.Remove(administrator);
             db.SaveChanges();
             return RedirectToAction("GetAll");
         }
 
-
-        // GET: Students/Search
+        // GET: Administrators/Search
         public ActionResult Search()
         {
             return View();
         }
 
-        // POST: Students/Search
+        // POST: Administrators/Search
         // To protect from overposting attacks, please enable the specific properties you want to bind to, for 
         // more details see http://go.microsoft.com/fwlink/?LinkId=317598.
         [HttpPost]
         [ValidateAntiForgeryToken]
-        public ActionResult Search([Bind(Include = "Id,Name,ContactNo,TimePriod,Semester,Department")] Student student)
+        public ActionResult Search([Bind(Include = "Id,Username,Password")] Administrator administrator)
         {
-            if (student.Name == null)
+            if (administrator.Username == null)
             {
-                student.Name = "";
+                administrator.Username = "";
             }
-            if (student.Semester == null)
-            {
-                student.Semester = "";
-            }
-            if (student.Department == null)
-            {
-                student.Department = "";
-            }
-            IEnumerable<Student> students;
+
+            IEnumerable<Administrator> administrators;
             if (ModelState.IsValid)
             {
-                students = from r in db.Students.AsQueryable()
-                           where r.Name.Contains(student.Name) 
-                           && r.Semester.Contains(student.Semester) 
-                           && r.Department.Contains(student.Department)
+
+                administrators = from r in db.Administrators.AsQueryable()
+                           where r.Username == administrator.Username
                            select r;
 
-                return View("GetAll", students);
+
+
+                return View("GetAll", administrators);
             }
-            return View(student);
 
+
+            return View(administrator);
         }
-
 
 
 

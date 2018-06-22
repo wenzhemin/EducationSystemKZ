@@ -2,6 +2,11 @@
 
 @{
     ViewBag.Title = "Create";
+
+    if (Session["userID"] == null)
+    {
+        Response.Redirect("~/Login/Index");
+    }
 }
 
 <h2>Create</h2>
@@ -18,7 +23,7 @@
 
 
 
-        @{
+        @*@{
             var type = new SelectList(
                 new List<SelectListItem>
                 {
@@ -35,7 +40,7 @@
                 @Html.DropDownListFor(model => model.Type, type, "Select type of expenses", new { @class = "form-control" })
                 @Html.ValidationMessageFor(model => model.Type, "", new { @class = "text-danger" })
             </div>
-        </div>
+        </div>*@
 
 
 
@@ -51,7 +56,7 @@
             @Html.LabelFor(model => model.Description, htmlAttributes: new { @class = "control-label col-md-2" })
             <div class="col-md-10">
                 @Html.EditorFor(model => model.Description, new { htmlAttributes = new { @class = "form-control" } })
-                <span class="input-description">* Optional - If you choose type of "Others", enter the description. </span>
+                @*<span class="input-description">* Optional - If you choose type of "Others", enter the description. </span>*@
                 @Html.ValidationMessageFor(model => model.Description, "", new { @class = "text-danger" })
             </div>
         </div>
@@ -90,5 +95,5 @@
 }
 
 <div>
-    @Html.ActionLink("Back to List", "Index")
+    @Html.ActionLink("Back to Expense Page", "Index")
 </div>

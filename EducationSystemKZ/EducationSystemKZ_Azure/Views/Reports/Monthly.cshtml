@@ -2,6 +2,11 @@
 
 @{
     ViewBag.Title = "Monthly";
+
+    if (Session["userID"] == null)
+    {
+        Response.Redirect("~/Login/Index");
+    }
 }
 
 <h2>Monthly</h2>

@@ -2,6 +2,11 @@
 
 @{
     ViewBag.Title = "Index";
+
+    if (Session["userID"] == null)
+    {
+        Response.Redirect("~/Login/Index");
+    }
 }
 
 <h2>Index</h2>
@@ -18,7 +23,7 @@
         <a href="/TuitionFees/Search"><i class="fas fa-paperclip"></i> Search</a> <span class="category-description"><i class="fas fa-angle-right"></i> Search for the payments. </span>
     </li>
     <li>
-        <a href="/TuitionFees/Check"><i class="fas fa-paperclip"></i> Chenck Tuition Fee</a> <span class="category-description"><i class="fas fa-angle-right"></i> Check which students have not paid for the selected month and earlier. </span>
+        <a href="/TuitionFees/Check"><i class="fas fa-paperclip"></i> Check Tuition Fee</a> <span class="category-description"><i class="fas fa-angle-right"></i> Check which students have not paid for the selected month and earlier. </span>
     </li>
 </ul>
 <p class="forTest" style="margin-top: 10px;">for testing - @Html.ActionLink("Get All", "GetAll")</p>

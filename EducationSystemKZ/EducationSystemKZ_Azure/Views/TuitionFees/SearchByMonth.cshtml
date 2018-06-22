@@ -2,6 +2,11 @@
 
 @{
     ViewBag.Title = "SearchByMonth";
+
+    if (Session["userID"] == null)
+    {
+        Response.Redirect("~/Login/Index");
+    }
 }
 
 <h2>GetByMonth</h2>

@@ -2,6 +2,11 @@
 
 @{
     ViewBag.Title = "GetReport";
+
+    if (Session["userID"] == null)
+    {
+        Response.Redirect("~/Login/Index");
+    }
 }
 
 <h2>GetReport</h2>
@@ -15,13 +20,6 @@
         <h3><i class="fas fa-calculator"></i> Income</h3>
         <dl class="dl-horizontal ">
 
-            <dt>
-                
-            </dt>
-
-            <dd>
-                
-            </dd>
 
             <dt>
                 @Html.DisplayNameFor(model => model.TotalFeeReceived)
@@ -55,21 +53,7 @@
                 @Html.DisplayFor(model => model.Salary)
             </dd>
 
-            <dt>
-                @Html.DisplayNameFor(model => model.ElectricityFee)
-            </dt>
 
-            <dd>
-                @Html.DisplayFor(model => model.ElectricityFee)
-            </dd>
-
-            <dt>
-                @Html.DisplayNameFor(model => model.WaterFee)
-            </dt>
-
-            <dd>
-                @Html.DisplayFor(model => model.WaterFee)
-            </dd>
 
             <dt>
                 @Html.DisplayNameFor(model => model.OtherFee)

@@ -18,7 +18,6 @@ namespace EducationSystemKZ_Azure.Models
         public int InvoiceId { get; set; }
         public decimal Amount { get; set; }
         public System.DateTime DateTime { get; set; }
-
         [DataType(DataType.Date)]
         [DisplayFormat(DataFormatString = "{0:MM/yyyy}")]
         public System.DateTime FeePeriod { get; set; }

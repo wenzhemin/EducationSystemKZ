@@ -11,15 +11,18 @@ namespace EducationSystemKZ_Azure.Models
 {
     using System;
     using System.Collections.Generic;
-    
-    public partial class Expense
+    using System.ComponentModel;
+    using System.ComponentModel.DataAnnotations;
+
+    public partial class Administrator
     {
         public int Id { get; set; }
-        public string Description { get; set; }
-        public decimal Amount { get; set; }
-        public System.DateTime DateTime { get; set; }
-        public Nullable<int> StaffId { get; set; }
-    
-        public virtual Staff Staff { get; set; }
+        [DisplayName("User Name")]
+        [Required(ErrorMessage = "This field is required.")]
+        public string Username { get; set; }
+        [DataType(DataType.Password)]
+        [Required(ErrorMessage = "This field is required.")]
+        public string Password { get; set; }
+        public string LoginErrorMessage { get; set; }
     }
 }

@@ -38,15 +38,11 @@ namespace EducationSystemKZ_Azure.Controllers
             IEnumerable<decimal> tuitionFees;
             IEnumerable<Expense> expenses;
             IEnumerable<decimal> salaries;
-            IEnumerable<decimal> electricityFees;
-            IEnumerable<decimal> waterFees;
             IEnumerable<decimal> otherFees;
 
             decimal sumTuitionFee = new decimal();
             decimal sumExpenses = new decimal();
             decimal sumSalary = new decimal();
-            decimal sumElectricityFee = new decimal();
-            decimal sumWaterFee = new decimal();
             decimal sumOtherFee = new decimal();
 
             if (ModelState.IsValid)
@@ -67,31 +63,19 @@ namespace EducationSystemKZ_Azure.Controllers
                 }
 
                 salaries = from r in expenses
-                            where r.Type == "salary"
+                            where r.Description == "salary"
                            select r.Amount;
 
                 sumSalary = salaries.Sum();
 
-                electricityFees = from r in expenses
-                           where r.Type == "electricity fee"
-                                  select r.Amount;
-
-                sumElectricityFee = electricityFees.Sum();
-
-                waterFees = from r in expenses
-                                  where r.Type == "water fee"
-                            select r.Amount;
-
-                sumWaterFee = waterFees.Sum();
-
                 otherFees = from r in expenses
-                                  where r.Type == "others"
+                                  where r.Description != "salary"
                             select r.Amount;
 
                 sumOtherFee = otherFees.Sum();
 
 
-                Report result = new Report() { Period = report.Period, TotalFeeReceived = sumTuitionFee, TotalExpenses = sumExpenses, Salary = sumSalary, ElectricityFee = sumElectricityFee, WaterFee = sumWaterFee, OtherFee = sumOtherFee };
+                Report result = new Report() { Period = report.Period, TotalFeeReceived = sumTuitionFee, TotalExpenses = sumExpenses, Salary = sumSalary, OtherFee = sumOtherFee };
                 return View("GetReport", result);
             }
             return View(report);

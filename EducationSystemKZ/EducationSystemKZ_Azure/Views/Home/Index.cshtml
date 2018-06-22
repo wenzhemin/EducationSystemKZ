@@ -1,9 +1,14 @@
 ﻿@{
     ViewBag.Title = "Home Page";
+
+    if (Session["userID"] == null)
+    {
+        Response.Redirect("~/Login/Index");
+    }
 }
 
 <div class="jumbotron">
-    <h1><i class="fas fa-user-graduate"></i> Education Management System</h1>
+    <h1 class="title"><i class="fas fa-user-graduate"></i> Ghazi Amanullah Khan Medical Institute</h1>
     <p class="lead">- Final semester project by Kifayat & Zhemin</p>
     @*<p><a href="/Students" class="btn btn-primary btn-lg">List of students &raquo;</a></p>*@
 </div>
@@ -11,7 +16,7 @@
 <div class="row">
     <div class="col-md-4">
         <a href="/Students" class="title-container">
-            <span class="title">Sudents</span>
+            <span class="title">Sudent</span>
             <span class="description">
                 <i class="fas fa-paperclip"></i> Manage students <br />
                 <i class="fas fa-paperclip"></i> Search for students
@@ -42,7 +47,7 @@
 
     <div class="col-md-4">
         <a href="/Expenses" class="title-container">
-            <span class="title">Expenses</span>
+            <span class="title">Expense</span>
             <span class="description">
                 <i class="fas fa-paperclip"></i> Manage expenses <br />
                 <i class="fas fa-paperclip"></i> Search for expenses
@@ -69,7 +74,7 @@
     </div>
 
     <div class="col-md-4">
-        <a href="/Home/NotYet" class="title-container">
+        <a href="/Administrators" class="title-container">
             <span class="title">Administrator</span>
             <span class="description">
                 <i class="fas fa-paperclip"></i> Manage Administrators <br />

@@ -2,6 +2,11 @@
 
 @{
     ViewBag.Title = "Details";
+
+    if (Session["userID"] == null)
+    {
+        Response.Redirect("~/Login/Index");
+    }
 }
 
 <h2>Details</h2>
@@ -18,13 +23,7 @@
             @Html.DisplayFor(model => model.Id)
         </dd>
 
-        <dt>
-            @Html.DisplayNameFor(model => model.Type)
-        </dt>
-
-        <dd>
-            @Html.DisplayFor(model => model.Type)
-        </dd>
+        
 
         <dt>
             @Html.DisplayNameFor(model => model.Description)
@@ -78,5 +77,5 @@
 </div>
 <p>
     @Html.ActionLink("Edit", "Edit", new { id = Model.Id }) |
-    @Html.ActionLink("Back to List", "Index")
+    @Html.ActionLink("Back to List", "GetAll")
 </p>

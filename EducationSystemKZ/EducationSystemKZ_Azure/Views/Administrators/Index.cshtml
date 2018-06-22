@@ -1,0 +1,28 @@
+﻿@model EducationSystemKZ_Azure.Models.Administrator
+
+@{
+    ViewBag.Title = "Index";
+
+    if (Session["userID"] == null)
+    {
+        Response.Redirect("~/Login/Index");
+    }
+}
+
+<h2>Index</h2>
+
+<ul class="category">
+    <li>
+        <a href="/Administrators/Create"><i class="fas fa-paperclip"></i> Create New</a> <span class="category-description"><i class="fas fa-angle-right"></i> Create a new administrator. </span>
+    </li>
+    <li>
+        <a href="/Administrators/GetAll"><i class="fas fa-paperclip"></i> Get All</a> <span class="category-description"><i class="fas fa-angle-right"></i> Get a list of all administrators. </span>
+    </li>
+    <li>
+        <a href="/Administrators/Search"><i class="fas fa-paperclip"></i> Search</a> <span class="category-description"><i class="fas fa-angle-right"></i> Search for administrators. </span>
+    </li>
+</ul>
+
+<p style="margin-top: 100px;">
+    <a href="/Home" class="btn btn-default"><i class="fas fa-undo-alt"></i> Back to Main Page</a>
+</p>

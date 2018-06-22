@@ -1,6 +1,11 @@
 ﻿
 @{
     ViewBag.Title = "ErrorDate";
+
+    if (Session["userID"] == null)
+    {
+        Response.Redirect("~/Login/Index");
+    }
 }
 
 <h2>ErrorDate</h2>
